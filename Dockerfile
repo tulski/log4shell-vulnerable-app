@@ -1,7 +1,7 @@
-FROM gradle:7.3.1-jdk17 AS builder
+FROM eclipse-temurin:11 AS builder
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle bootJar --no-daemon
+RUN ./gradlew bootJar --no-daemon
 
 
 FROM openjdk:8u181-jdk-alpine
